@@ -1,5 +1,5 @@
 ---
-name: "arteria-packs.trigger_ngi_pipeline"
+name: "arteria.trigger_ngi_pipeline"
 description: "Fires of the NGI pipeline"
 enabled: true
 

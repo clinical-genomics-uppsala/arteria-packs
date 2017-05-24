@@ -7,7 +7,7 @@ import arteria_integration_test as arteria_test
 class TestDemultiplex(arteria_test.ArteriaIntegrationTest):
 
     def test_successful_execution(self):
-        cmd = "st2 run -j arteria-packs.demultiplex " \
+        cmd = "st2 run -j arteria.demultiplex " \
               "host=localhost username=vagrant password=vagrant " \
               " ".format(self.runfolder, self.samplesheet_location)
 

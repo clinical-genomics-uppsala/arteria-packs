@@ -5,10 +5,10 @@
     enabled: true
     entry_point: ''
     parameters:
-        timeout:
-        # Use a default timeout of 10 hour. "No timout" is fixed in a new version
-        # https://github.com/StackStorm/st2/issues/1654
-            default: 36000
+        cmd:
+            immutable: true
+            default: 'ssh -v {{host}} "bash -s" < /opt/stackstorm/packs/arteria/actions/lib/create_sis_style_checksums.sh {{ source }} {{ include_file }} {{ output_file }}'
+            position: 0
         source:
             type: 'string'
             description: 'List of files/directories to to be copied'
@@ -39,10 +39,10 @@
             description: 'Name of the output file'
             required: true
             position: 6
-        cmd:
-            immutable: true
-            default: 'ssh -v {{host}} "bash -s" < /opt/stackstorm/packs/arteria-packs/actions/lib/create_sis_style_checksums.sh {{ source }} {{ include_file }} {{ output_file }}'
-            position: 0
+        timeout:
+        # Use a default timeout of 10 hour. "No timout" is fixed in a new version
+        # https://github.com/StackStorm/st2/issues/1654
+            default: 36000
         connect_timeout:
             type: 'integer'
             description: 'SSH connect timeout in seconds'
