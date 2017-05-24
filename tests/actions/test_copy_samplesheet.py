@@ -6,7 +6,7 @@ import arteria_integration_test as arteria_test
 class TestCopy_samplesheet(arteria_test.ArteriaIntegrationTest):
 
     def test_successful_execution(self):
-        cmd = "st2 run -j arteria-packs.copy_samplesheet hosts=localhost " \
+        cmd = "st2 run -j arteria.copy_samplesheet hosts=localhost " \
               "runfolder={0} " \
               "samplesheet_location={1}" \
               " username=vagrant password=vagrant".format(self.runfolder, self.samplesheet_location)

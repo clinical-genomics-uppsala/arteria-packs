@@ -1,11 +1,11 @@
-arteria-packs
+arteria
 -------------
 
 NOTE: This is very much a work in progress, mostly containing dummy workflows so far.
 
 StackStorm pack to setup automation workflow taking data from the sequencer to delivery on the remote host...
 
-If you are using the `arteria-provisioning` this directory should be mounted under the `/opt/stackstorm/packs/arteria-packs` 
+If you are using the `arteria-provisioning` this directory should be mounted under the `/opt/stackstorm/packs/arteria` 
 (make sure to set the path in the Vagrant file). To load all actions, rules, etc, run `st2 run packs.load register=all`.
 
 Getting an authentication token
@@ -20,7 +20,7 @@ Example of starting a workflow
 
 Now you should be good to go. Here's an example of how to run a action:
 
-     st2 run arteria-packs.ngi_uu_workflow runfolder=/data/testarteria1/150605_M00485_0183_000000000-ABGT6_testbio14 host=testarteria1
+     st2 run arteria.ngi_uu_workflow runfolder=/data/testarteria1/150605_M00485_0183_000000000-ABGT6_testbio14 host=testarteria1
      
 To see the result of a run - you can first list the executions:
 
@@ -37,7 +37,7 @@ Each execution will get it's own unique id when run by StackStorm. However it ca
 in other ways. Such as being able to see all executions for a particular runfolder for example. You can achieve this by
  using  the `--trace-tag` argument when staring a job, e.g:
  
-    st2 run arteria-packs.ngi_uu_workflow \
+    st2 run arteria.ngi_uu_workflow \
         runfolder=/data/testarteria1/150605_M00485_0183_000000000-ABGT6_testbio14 \
         host=testarteria1 \
         --trace-tag 150605_M00485_0183_000000000-ABGT6_testbio14
