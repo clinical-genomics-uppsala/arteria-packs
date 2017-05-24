@@ -53,7 +53,7 @@ class RunfolderSensor(PollingSensor):
 
     def _handle_result(self, result):
         self._infolog("_handle_result")
-        trigger = 'arteria-packs.runfolder_ready'
+        trigger = 'arteria.runfolder_ready'
         runfolder_path = result['path']
         runfolder_name = os.path.split(runfolder_path)[1]
         payload = {
@@ -66,10 +66,10 @@ class RunfolderSensor(PollingSensor):
         self._sensor_service.dispatch(trigger=trigger, payload=payload, trace_tag=runfolder_name)
 
     def _load_config(self):
-        config_path = "/opt/stackstorm/packs/arteria-packs/config.yaml"
+        config_path = "/opt/stackstorm/packs/arteria/config.yaml"
         with open(config_path) as stream:
             self.config = yaml.load(stream)
             self._infolog("Loaded configuration from {}".format(config_path))
 
     def _infolog(self, msg):
-        self._logger.info("[arteria-packs." + self.__class__.__name__ + "] " + msg)
+        self._logger.info("[arteria." + self.__class__.__name__ + "] " + msg)

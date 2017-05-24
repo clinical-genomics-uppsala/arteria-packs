@@ -7,7 +7,7 @@ import arteria_integration_test as arteria_test
 class TestBCL2FASTQ(arteria_test.ArteriaIntegrationTest):
 
     def test_successful_execution(self):
-        cmd = "st2 run -j arteria-packs.bcl2fastq hosts=localhost " \
+        cmd = "st2 run -j arteria.bcl2fastq hosts=localhost " \
               "input={0} " \
               "output=/tmp/test hosts=localhost username=vagrant password=vagrant".format(self.runfolder)
 
